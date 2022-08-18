@@ -1,6 +1,7 @@
 [![GitHub](https://img.shields.io/github/license/VPavlusha/FSM?color=blue&label=License&logo=github)](LICENSE)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/VPavlusha/FSM/CMake?label=CMake&logo=Github)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/VPavlusha/FSM/cpp-linter?label=cpp-linter&logo=Github)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/VPavlusha/FSM?label=Release&logo=github)
 ---
 
 # FSM - Finite State Machine
