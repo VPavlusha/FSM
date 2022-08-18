@@ -1,6 +1,6 @@
 [![GitHub](https://img.shields.io/github/license/VPavlusha/FSM?color=blue&label=License&logo=github)](LICENSE)
-[![GCC, Clang](https://github.com/VPavlusha/FSM/actions/workflows/cmake.yml/badge.svg)](https://github.com/VPavlusha/FSM/actions/workflows/cmake.yml)
-[![Linter](https://github.com/VPavlusha/FSM/actions/workflows/cpp-linter.yml/badge.svg)](https://github.com/VPavlusha/FSM/actions/workflows/cpp-linter.yml)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/VPavlusha/FSM/CMake?label=CMake&logo=Github)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/VPavlusha/FSM/cpp-linter?label=cpp-linter&logo=Github)
 ---
 
 # FSM - Finite State Machine
