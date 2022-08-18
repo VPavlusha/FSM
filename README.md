@@ -5,7 +5,7 @@
 ---
 
 # FSM - Finite State Machine
-A static (no dynamic allocations) C/C++ Finite State Machine (FSM) header-only library.<br />
+A static (no dynamic allocations) Finite State Machine (FSM) header-only C/C++ library.<br/>
 Based on original design published at: <a href="https://github.com/AstarLight/FSM-framework"><strong>FSM-framework</strong></a>.
 
 #### Table of Contents  
