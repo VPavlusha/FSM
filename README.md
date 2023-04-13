@@ -2,10 +2,12 @@
 [![CMake](https://github.com/VPavlusha/FSM/actions/workflows/cmake.yml/badge.svg)](https://github.com/VPavlusha/FSM/actions/workflows/cmake.yml)
 [![cpp-linter](https://github.com/VPavlusha/FSM/actions/workflows/cpp-linter.yml/badge.svg)](https://github.com/VPavlusha/FSM/actions/workflows/cpp-linter.yml)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/VPavlusha/FSM?label=Release&logo=github)](https://github.com/VPavlusha/FSM/releases)
+[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://stand-with-ukraine.pp.ua)
+[![Made in Ukraine](https://img.shields.io/badge/Made_in-Ukraine-ffd700.svg?labelColor=0057b7)](https://stand-with-ukraine.pp.ua)
 ---
 
 # FSM - Finite State Machine
-A static (no dynamic allocations) Finite State Machine (FSM) header-only C/C++ library.<br/>
+A static (no dynamic allocations) Finite State Machine (FSM) C/C++ library.<br/>
 Based on: https://github.com/AstarLight/FSM-framework
 
 #### Table of Contents  
@@ -14,16 +16,16 @@ Based on: https://github.com/AstarLight/FSM-framework
 &emsp;[3. Basic Usage in C](#3-basic-usage-in-c)  
 &emsp;[4. Basic Usage in C++](#4-basic-usage-in-c)  
 &emsp;[5. Examples](#5-examples)  
-&emsp;[6. Installation](#6-installation)  
-&emsp;[7. Requirement](#7-requirement)  
-&emsp;[8. Build Procedure](#8-build-procedure)  
-&emsp;[9. License](#9-license)  
+&emsp;[6. Requirement](#6-requirement)  
+&emsp;[7. Build Procedure by CMake (Unix)](#7-build-procedure-by-cmake-unix)  
+&emsp;[8. Build Procedure by CMake (Windows)](#8-build-procedure-by-cmake-windows)  
+&emsp;[9. Contributing](#9-contributing)  
+&emsp;[10. License](#10-license)  
 
 ## 1. Features
   - **Permissive** MIT License.
   - **C and C++ languages** – state machine is written both in C and C++ languages.
   - **Compact** – consumes a minimum amount of resources.
-  - **Header-only library** – no special installation steps are needed.
   - **Fully static** – no dynamic memory allocations.
   - **Objects** – support multiple FSM instantiations of a single state machine type.
   - **Transition table** – transition table precisely controls state transition behavior.
@@ -32,7 +34,6 @@ Based on: https://github.com/AstarLight/FSM-framework
   - **Error checking** – runtime checks catch mistakes early.
 
 ## 2. State Transition Table
-
 <img src="./doc/img/fsm_diagram.svg" alt="Finite State Machine" width="550"/>
 
 The state diagram shown in the figure can be described via a state transition table. This table has four columns and as many rows as needed. Each row describes a transition from the **Present State** to the **Next State**. The transition is triggered by the **Event** (a combination of one or more event flags). The **Action** describes all the actions associated with the transition.
@@ -100,7 +101,7 @@ int main()
 #include "finite_state_machine.hpp"
 
 // 2. Create enumeration for FSM states:
-enum FSM_States : int {
+enum FSM_States: int {
     STATE_0,
     STATE_1,
     STATE_2,
@@ -146,32 +147,49 @@ int main()
 ```
 
 ## 5. Examples
-This project includes several [`examples`](https://github.com/VPavlusha/FSM/tree/main/examples) that showcase the functionality of the FSM library. These examples provide a practical demonstration of how to use the FSM API to implement finite state machines in your own applications.
+This project includes several [examples](https://github.com/VPavlusha/FSM/tree/main/examples) that showcase the functionality of the FSM library. These examples provide a practical demonstration of how to use the FSM API to implement finite state machines in your own applications.
 
-## 6. Installation
-FSM is a header-only library, no special installation steps are needed. Just point your compiler to the [`include`](https://github.com/VPavlusha/FSM/tree/main/include) directory.
+## 6. Requirement
+For the build process:
+  - **cmake**
+  - **make**
+  - **gcc**
 
-## 7. Requirement
-For the build process :
-  - cmake
-  - make
-  - gcc
+For the documentation generation:
+  - **doxygen**
 
-For the documentation generation :
-  - doxygen
-
-## 8. Build Procedure
+## 7. Build Procedure by CMake (Unix)
 ```
 git clone https://github.com/VPavlusha/FSM.git
 cd fsm
 mkdir build && cd build
-cmake .. -G "Unix Makefiles" && make
+cmake ..  # Default to Unix Makefiles
+make
 ```
+Once this completes, everything will be under **`build/`**:
+  - **fsm_example_c**
+  - **fsm_example_cpp**
 
-## 9. License
-FSM is the [Open Source] software. It may be used for any purpose,
-including commercial purposes, at absolutely no cost. It is
-distributed under the terms of the [MIT license].
+Run these files to try how FSM works.
 
-  [Open Source]: http://www.opensource.org/docs/definition.html
+## 8. Build Procedure by CMake (Windows)
+```
+git clone https://github.com/VPavlusha/FSM.git
+cd fsm
+mkdir build && cd build
+cmake .. -G "Unix Makefiles"  # Or use any generator you want to use. Run cmake --help for a list
+make
+```
+Once this completes, everything will be under **`build/`**:
+  - **fsm_example_c.exe**
+  - **fsm_example_cpp.exe**
+
+Run these files to try how FSM works.
+
+## 9. Contributing
+Contributions to the FSM project are welcome. If you find a bug or have a feature request, please submit an issue on the project's GitHub page. If you'd like to contribute code, please submit a pull request.
+
+## 10. License
+The FSM project is licensed under the MIT License. See the [MIT license] file for more information.
+  
   [MIT license]: http://www.opensource.org/licenses/mit-license.html

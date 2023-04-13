@@ -81,7 +81,19 @@ class FSM {
     FSM &operator=(FSM &&) = delete;
     ~FSM() = default;
 
+    /**
+     * \brief Get FSM current state.
+     *
+     * \return  FSM_State_t  The FSM current state.
+     */
     FSM_State_t FSM_GetCurrentState() const noexcept;
+
+    /**
+     * \brief FSM kernel task running on background.
+     *
+     * \return  FSM_SUCCESS             On success.
+     * \return  FSM_ARGUMENT_NOT_VALID  If an argument is a nullptr pointer.
+     */
     FSM_ReturnCode_t FSM_Kernel() noexcept;
 
   private:
@@ -89,42 +101,6 @@ class FSM {
     const size_t fsm_table_size_;
     FSM_State_t current_state_;
 };
-
-/**
- * \brief Get FSM current state.
- *
- * \return  FSM_State_t  The FSM current state.
- */
-FSM_State_t FSM::FSM_GetCurrentState() const noexcept
-{
-    return current_state_;
-}
-
-/**
- * \brief FSM kernel task running on background.
- *
- * \return  FSM_SUCCESS             On success.
- * \return  FSM_ARGUMENT_NOT_VALID  If an argument is a nullptr pointer.
- */
-FSM_ReturnCode_t FSM::FSM_Kernel() noexcept
-{
-    for (size_t row = 0; row < fsm_table_size_ / sizeof(FSM_TableRow_t); ++row) {
-        if (fsm_table_[row].present_state == current_state_) {
-            if (fsm_table_[row].event != nullptr) {
-                if (fsm_table_[row].event()) {
-                    if (fsm_table_[row].action != nullptr) {
-                        fsm_table_[row].action();
-                    }
-                    current_state_ = fsm_table_[row].next_state;
-                    break;
-                }
-            } else {
-                return FSM_ReturnCode_t::FSM_ARGUMENT_NOT_VALID;
-            }
-        }
-    }
-    return FSM_ReturnCode_t::FSM_SUCCESS;
-}
 
 }  // namespace fsm
 

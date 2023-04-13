@@ -31,7 +31,7 @@
  */
 
 #include <stdbool.h>
-#include <stdio.h>
+#include <stddef.h>
 
 typedef bool (*FSM_Event_t)(void);
 typedef void (*FSM_Action_t)(void);
@@ -76,28 +76,6 @@ typedef struct {
  * \return  FSM_SUCCESS             On success.
  * \return  FSM_ARGUMENT_NOT_VALID  If an argument is a NULL pointer.
  */
-FSM_ReturnCode_t FSM_Kernel(FSM_t *const fsm)
-{      
-    if (fsm == NULL) {
-        return FSM_ARGUMENT_NOT_VALID;
-    }
-
-    for (size_t row = 0; row < fsm->fsm_table_size / sizeof(FSM_TableRow_t); ++row) {
-        if (fsm->fsm_table[row].present_state == fsm->current_state) {
-            if (fsm->fsm_table[row].event != NULL) {
-                if (fsm->fsm_table[row].event()) {
-                    if (fsm->fsm_table[row].action != NULL) {
-                        fsm->fsm_table[row].action();
-                    }
-                    fsm->current_state = fsm->fsm_table[row].next_state;
-                    break;
-                }
-            } else {
-                return FSM_ARGUMENT_NOT_VALID;
-            }
-        }
-    }
-    return FSM_SUCCESS;
-}
+FSM_ReturnCode_t FSM_Kernel(FSM_t *const fsm);
 
 #endif  // FINITE_STATE_MACHINE_H_
