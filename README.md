@@ -2,6 +2,8 @@
 [![CMake](https://github.com/VPavlusha/FSM/actions/workflows/cmake.yml/badge.svg)](https://github.com/VPavlusha/FSM/actions/workflows/cmake.yml)
 [![cpp-linter](https://github.com/VPavlusha/FSM/actions/workflows/cpp-linter.yml/badge.svg)](https://github.com/VPavlusha/FSM/actions/workflows/cpp-linter.yml)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/VPavlusha/FSM?label=Release&logo=github)](https://github.com/VPavlusha/FSM/releases)
+[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://stand-with-ukraine.pp.ua)
+[![Made in Ukraine](https://img.shields.io/badge/Made_in-Ukraine-ffd700.svg?labelColor=0057b7)](https://stand-with-ukraine.pp.ua)
 ---
 
 # FSM - Finite State Machine
